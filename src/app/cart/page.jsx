@@ -1,19 +1,29 @@
 'use client'
 
 import { requestCheckoutSession } from '@/api-requests'
+import Button from '@/components/Button'
+import { CHECKOUT_SESSION_KEY } from '@/config'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { CartItems } from './constant'
 
 const CartPage = () => {
+  const router = useRouter()
   const [totalAmount, setTotalAmount] = useState(0)
+  const [loading, setLoading] = useState(false)
 
   const handleProceedToCheckout = () => {
+    setLoading(true)
     const orderId = `test-order-${Math.floor(1000 + Math.random() * 9000)}`
     requestCheckoutSession({
       amount: totalAmount,
       currency: 'USD',
       orderId: orderId,
-      orderDescription: `Test Order for OrderId = ${orderId}`
+      orderDescription: `Test Order for OrderId: ${orderId}`
+    }).then((res) => {
+      sessionStorage.setItem(CHECKOUT_SESSION_KEY, res.session.id)
+      setLoading(false)
+      router.push('/checkout')
     })
   }
 
@@ -40,14 +50,16 @@ const CartPage = () => {
             />
           </div>
         </div>
-        <button
-          type="submit"
-          className="flex w-full justify-center rounded-md bg-black px-3 py-2 text-sm font-semibold leading-6 text-white hover:bg-white hover:text-black hover:border hover:border-black transition-all duration-200"
+        <Button
+          type={'submit'}
           onClick={() => {
             handleProceedToCheckout()
-          }}>
+          }}
+          loading={loading}
+          disabled={loading || !totalAmount}
+          className={'w-full'}>
           Proceed to Checkout
-        </button>
+        </Button>
       </div>
     </>
   )
