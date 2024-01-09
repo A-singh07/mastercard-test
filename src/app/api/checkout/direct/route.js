@@ -6,7 +6,7 @@ const TRANSACTION_CAPTURE_SUCCESS_STATUS = ['CAPTURED', 'PARTIALLY_CAPTURED']
 export const POST = async (request) => {
   const payload = await request.json()
 
-  let response
+  let response, status
 
   try {
     // -- Check PG Connection
@@ -38,7 +38,6 @@ export const POST = async (request) => {
 
     // -- Capture Transaction
     const transactionCapture = await captureTransaction(payload)
-    console.log(23232323, transactionCapture)
     if (
       !transactionCapture?.is_success ||
       !TRANSACTION_CAPTURE_SUCCESS_STATUS.includes(transactionCapture?.data?.order?.status)
@@ -53,13 +52,15 @@ export const POST = async (request) => {
     console.log(' ---- Transaction Captured! ----')
 
     response = transactionCapture
+    status = 200
   } catch (error) {
     response = {
       error: error.error,
       cause: error.cause || '',
       message: error.explanation || ''
     }
+    status = 400
   }
 
-  return NextResponse.json(response)
+  return NextResponse.json(response, { status: status })
 }

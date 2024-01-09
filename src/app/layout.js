@@ -1,9 +1,9 @@
 import Header from '@/components/Header'
-import { Inter } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const font = Montserrat({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'MPGS test',
@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={font.className}>
         <Header />
         <main className="max-w-7xl mx-auto p-6 lg:px-8">{children}</main>
         <Script src="https://mtf.gateway.mastercard.com/static/checkout/checkout.min.js" />

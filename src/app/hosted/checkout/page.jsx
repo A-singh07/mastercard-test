@@ -3,7 +3,7 @@
 import { CHECKOUT_SESSION_KEY } from '@/config'
 import { useEffect } from 'react'
 
-const CheckoutPage = () => {
+const HostedCheckoutPage = () => {
   // Configure Checkout
   useEffect(() => {
     if (window) {
@@ -18,7 +18,7 @@ const CheckoutPage = () => {
     }
   }, [])
 
-  return <div id="mpgs-embedded"></div>
+  return <div id="mpgs-embedded" className="max-w-3xl mx-auto"></div>
 }
 
-export default CheckoutPage
+export default HostedCheckoutPage

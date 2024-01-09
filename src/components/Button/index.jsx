@@ -1,6 +1,6 @@
 import Spinner from '../Spinner'
 
-const Button = ({ onClick, type, loading, disabled, children, className }) => {
+const Button = ({ onClick = () => {}, type, loading, disabled, children, className }) => {
   return (
     <button
       type={type}

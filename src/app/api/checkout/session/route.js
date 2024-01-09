@@ -10,8 +10,8 @@ export const POST = async (request) => {
       apiOperation: 'INITIATE_CHECKOUT',
       interaction: {
         operation: 'PURCHASE',
-        cancelUrl: `${HOSTED_URL}/cart`,
-        // returnUrl: `${HOSTED_URL}/cart`,
+        cancelUrl: `${HOSTED_URL}/hosted/cart`,
+        // returnUrl: `${HOSTED_URL}/`,
         merchant: {
           name: `${MERCHANT_NAME}`,
           url: 'https://payrx-uat.bajajfinservhealth.in'
@@ -34,6 +34,9 @@ export const POST = async (request) => {
       }
     }
   )
+
+  console.log(' ---- INITIATE CHECKOUT ---')
+  console.log(response.data)
 
   const result = NextResponse.json(
     {
