@@ -12,7 +12,7 @@ export const requestCheckoutSession = async (payload) => {
     body: JSON.stringify({
       amount: payload.amount,
       currency: payload.currency,
-      orderId: orderId,
+      orderId: payload.orderId,
       orderDescription: payload.orderDescription
     })
   }).then((res) =>
