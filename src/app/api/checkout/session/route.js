@@ -1,10 +1,6 @@
-import axios from 'axios'
-import { AUTH_TOKEN, HOSTED_URL, MERCHANT_ID, MERCHANT_NAME, PG_BASE_URL } from '@/config'
+import { AUTH_TOKEN, HOSTED_URL, MERCHANT_NAME } from '@/config'
 import { NextResponse } from 'next/server'
-
-const axiosInterceptorInstance = axios.create({
-  baseURL: `${PG_BASE_URL}/merchant/${MERCHANT_ID}`
-})
+import { axiosInterceptorInstance } from '../../axiosInterceptor'
 
 export const POST = async (request) => {
   const payload = await request.json()

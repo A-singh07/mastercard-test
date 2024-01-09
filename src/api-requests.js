@@ -2,7 +2,7 @@ import { HOSTED_URL } from './config'
 
 // Initiate Checkout session
 export const requestCheckoutSession = async (payload) => {
-  const response = await fetch(`${HOSTED_URL}/api/checkout`, {
+  const response = await fetch(`${HOSTED_URL}/api/checkout/session`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
