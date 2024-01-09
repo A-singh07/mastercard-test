@@ -64,13 +64,16 @@ const DirectCheckoutPage = () => {
   return (
     <>
       <Button
-        className={'bg-white text-black hover:border-none'}
+        className={'bg-white text-black hover:text-black hover:border-none fixed'}
+        style={{
+          color: 'black'
+        }}
         onClick={() => {
           router.back()
         }}>
-        Back
+        {'< Back'}
       </Button>
-      <div className="max-w-lg mx-auto mt-10">
+      <div className="max-w-lg mx-auto mt-3">
         <p className="mb-5 text-lg font-semibold">Enter card details</p>
         <div className="flex flex-col gap-5">
           <div className="w-full flex flex-col gap-2">
