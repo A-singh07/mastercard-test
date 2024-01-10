@@ -16,13 +16,20 @@ const HostedCartPage = () => {
 
     setLoading(true)
     requestCheckoutSession({
+      orderId: orderId,
       amount: totalAmount,
-      currency: 'USD'
-    }).then((res) => {
-      sessionStorage.setItem(CHECKOUT_SESSION_KEY, res.data?.session?.id)
-      setLoading(false)
-      router.push(`/hosted/checkout?orderId=${orderId}`)
+      currency: 'USD',
+      orderDescription: `Test Order for orderId: ${orderId}`
     })
+      .then((res) => {
+        sessionStorage.setItem(CHECKOUT_SESSION_KEY, res.data?.session?.id)
+        setLoading(false)
+        router.push(`/hosted/checkout?orderId=${orderId}`)
+      })
+      .catch((error) => {
+        setLoading(false)
+        console.log('Error while creating session', error)
+      })
   }
 
   return (

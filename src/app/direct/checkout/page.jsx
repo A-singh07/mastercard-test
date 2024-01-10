@@ -46,7 +46,7 @@ const DirectCheckoutPage = () => {
         setLoading(false)
         setTransactionResponse({
           'Order Id': res?.data?.order?.id,
-          Amount: res?.data?.order?.amount,
+          Amount: `$${res?.data?.order?.amount}`,
           Currency: res?.data?.order?.currency,
           Status: res?.data?.order?.status
         })
@@ -64,7 +64,7 @@ const DirectCheckoutPage = () => {
   return (
     <>
       <Button
-        className={'bg-white text-black hover:text-black hover:border-none fixed'}
+        className={'bg-white text-black hover:text-black hover:border-none absolute'}
         style={{
           color: 'black'
         }}

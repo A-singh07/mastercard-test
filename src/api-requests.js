@@ -61,3 +61,46 @@ export const createOrderTransaction = async (payload) => {
 
   return response
 }
+
+// Get Order
+export const getOrderTransaction = async (payload) => {
+  let response;
+
+  await fetch(`${HOSTED_URL}/api/order?orderId=${payload.orderId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  }).then((res) =>
+    res.json().then((data) => {
+      if (!res.ok) throw data;
+      response = data;
+    })
+  );
+
+  return response;
+};
+
+// Refund Payment
+export const refundPayment = async (payload) => {
+  let response;
+
+  await fetch(`${HOSTED_URL}/api/refund`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      orderId: payload.orderId,
+      amount: payload.refundAmount,
+      currency: "USD"
+    })
+  }).then((res) =>
+    res.json().then((data) => {
+      if (!res.ok) throw data;
+      response = data;
+    })
+  );
+
+  return response;
+};
