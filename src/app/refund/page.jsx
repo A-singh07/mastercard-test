@@ -81,7 +81,7 @@ const RefundPage = () => {
   return (
     <>
       <Button
-        className={'bg-white text-black hover:text-black hover:border-none absolute'}
+        className={'bg-white text-black hover:text-black hover:border-none md:absolute'}
         style={{
           color: 'black'
         }}
@@ -90,12 +90,12 @@ const RefundPage = () => {
         }}>
         {'< Back'}
       </Button>
-      <div className="max-w-lg mx-auto mt-3">
-        <p className="mb-8 text-lg font-semibold">Initiate Refund</p>
+      <div className="container md:max-w-lg mx-auto mt-3">
+        <p className="mb-5 text-lg font-semibold">Initiate Refund</p>
         <div className="flex flex-col gap-5">
           <div className="w-full flex flex-col gap-2 mb-5">
             <p className="">Enter Order ID</p>
-            <div className="w-full flex gap-5">
+            <div className="w-full flex flex-col sm:flex-row gap-5">
               <input
                 type="text"
                 name="order-id"

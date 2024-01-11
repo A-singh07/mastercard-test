@@ -26,6 +26,14 @@ export default function Home() {
       <Button
         className={'w-5/6'}
         onClick={() => {
+          router.push('/verify')
+        }}>
+        Verify a Payment
+      </Button>
+
+      <Button
+        className={'w-5/6'}
+        onClick={() => {
           router.push('/refund')
         }}>
         Initiate Refund

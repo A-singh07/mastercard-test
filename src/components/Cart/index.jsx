@@ -21,7 +21,7 @@ const CartItems = [
 const Cart = ({ checkoutFun, loading, setTotalAmount = () => {}, totalAmount = 0 }) => {
   return (
     <>
-      <div className="max-w-xl mx-auto mt-12">
+      <div className="max-w-xl mx-auto mt-5 sm:mt-12">
         <p className="font-semibold mb-8 text-2xl text-center">Cart</p>
         {CartItems.map((item, i) => (
           <div
@@ -31,13 +31,13 @@ const Cart = ({ checkoutFun, loading, setTotalAmount = () => {}, totalAmount = 0
             <div>{item.price}</div>
           </div>
         ))}
-        <div className="flex justify-between my-5 text-xl">
+        <div className="flex items-center justify-between my-5 text-sm sm:text-xl gap-5">
           <p className="font-bold">Total Amount</p>
-          <div>
-            $&nbsp;
+          <div className="flex gap-2 items-center justify-end">
+            <p>$</p>
             <input
               type="number"
-              className="border border-slate-500 rounded-md text-base px-2 py-1"
+              className="border border-slate-500 rounded-md text-base px-2 py-1 w-5/6"
               onChange={(e) => setTotalAmount(e.target.value)}
             />
           </div>

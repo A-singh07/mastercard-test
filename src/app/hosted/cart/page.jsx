@@ -34,7 +34,9 @@ const HostedCartPage = () => {
 
   return (
     <>
-      <h3 className="text-2xl font-semibold mb-5">Hosted Checkout Journey</h3>
+      <h3 className="text-xl sm:text-2xl font-semibold mb-5 text-center sm:text-start">
+        Hosted Checkout Journey
+      </h3>
       <Cart
         checkoutFun={handleProceedToCheckout}
         loading={loading}

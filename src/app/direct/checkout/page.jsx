@@ -64,7 +64,7 @@ const DirectCheckoutPage = () => {
   return (
     <>
       <Button
-        className={'bg-white text-black hover:text-black hover:border-none absolute'}
+        className={'bg-white text-black hover:text-black hover:border-none md:absolute'}
         style={{
           color: 'black'
         }}
@@ -73,7 +73,7 @@ const DirectCheckoutPage = () => {
         }}>
         {'< Back'}
       </Button>
-      <div className="max-w-lg mx-auto mt-3">
+      <div className="container md:max-w-lg mx-auto mt-3">
         <p className="mb-5 text-lg font-semibold">Enter card details</p>
         <div className="flex flex-col gap-5">
           <div className="w-full flex flex-col gap-2">
@@ -96,7 +96,7 @@ const DirectCheckoutPage = () => {
               onChange={(e) => handleChange('number', e.target.value)}
             />
           </div>
-          <div className="w-full flex gap-20">
+          <div className="w-full flex flex-col sm:flex-row justify-between gap-10 md:gap-20">
             <div className="flex flex-col gap-2">
               <p className="">Expiry</p>
               <div className="flex gap-2 items-center">
