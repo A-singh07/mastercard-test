@@ -2,6 +2,13 @@ Official Mastercard Payment Gateway Service (MPGS) documentation:
 
 https://ap-gateway.mastercard.com/api/documentation/integrationGuidelines/index.html?locale=en_US
 
+---
+
+### TEST
+Card Number: 4005555555000009
+Expiry: 01/39
+CVV: 100
+
 -------
 
 ## Getting Started
