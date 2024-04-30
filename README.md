@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Official Mastercard Payment Gateway Service (MPGS) documentation:
+
+https://ap-gateway.mastercard.com/api/documentation/integrationGuidelines/index.html?locale=en_US
+
+-------
 
 ## Getting Started
 
