@@ -1,47 +1,36 @@
+# MPGS Integration Guide
+
 Official Mastercard Payment Gateway Service (MPGS) documentation:
 
 https://ap-gateway.mastercard.com/api/documentation/integrationGuidelines/index.html?locale=en_US
 
+- [Orders and Transaction](https://ap-gateway.mastercard.com/api/documentation/integrationGuidelines/supportedFeatures/ordersAndTransactions.html?locale=en_US#:~:text=An%20order%20can,account%20to%20yours.)
+- [Transaction Operations](https://ap-gateway.mastercard.com/api/documentation/integrationGuidelines/supportedFeatures/pickTransactionCommands.html?locale=en_US#x_initial)
+
 ---
 
-### TEST
+### TEST Credentials
+
+```
 Card Number: 4005555555000009
 Expiry: 01/39
 CVV: 100
-
--------
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[Standard test data – all supported regions](https://ap-gateway.mastercard.com/api/documentation/integrationGuidelines/supportedFeatures/testAndGoLive.html?locale=en_US)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### APIs
 
-## Learn More
+Base URL: https://mtf.gateway.mastercard.com/api/rest/version/77/merchant/{{MERCHANT_ID}}
 
-To learn more about Next.js, take a look at the following resources:
+#### Hosted Checkout
+- Initiate Checkout
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Direct Checkout
+- Check PG Connection
+- Authorise Transaction
+- Capture Transaction
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
